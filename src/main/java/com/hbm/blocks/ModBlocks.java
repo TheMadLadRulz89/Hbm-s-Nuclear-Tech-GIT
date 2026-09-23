@@ -2727,6 +2727,9 @@ public class ModBlocks {
 		GameRegistry.registerBlock(tile_lab_cracked, tile_lab_cracked.getUnlocalizedName());
 		GameRegistry.registerBlock(tile_lab_broken, tile_lab_broken.getUnlocalizedName());
 
+		GameRegistry.registerBlock(tile_checkerboard, tile_checkerboard.getUnlocalizedName());
+		GameRegistry.registerBlock(tile_checkerboard_small, tile_checkerboard_small.getUnlocalizedName());
+
 		//Other defensive stuff
 		GameRegistry.registerBlock(barbed_wire, barbed_wire.getUnlocalizedName());
 		GameRegistry.registerBlock(barbed_wire_fire, barbed_wire_fire.getUnlocalizedName());
