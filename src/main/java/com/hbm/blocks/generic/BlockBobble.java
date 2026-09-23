@@ -215,8 +215,7 @@ public class BlockBobble extends BlockContainer implements IGUIProvider, INBTBlo
 		PEEP(			"Peep",								"LePeeperSauvage",	"Coilgun, Leadburster and Congo Lake models, BDCL QC",		"Fluffy ears can't hide in ash, nor snow.",															true,	ScrapType.CARD_BOARD),
 		MELLOW(			"MELLOWARPEGGIATION",				"Mellow",			"NBT Structures, industrial lighting, animation tools",		"Make something cool now, ask for permission later.",												true,	ScrapType.CARD_PROCESSOR),
 		ABEL(			"Abel1502", 						"Abel1502", 		"Abilities GUI, optimizations and many QoL improvements", 	"NANTO SUBARASHII",																				    true,	ScrapType.CPU_REGISTER),
-		MADLAD(         "CreeperTyp89",                     "CreeperTyp89",     "NBT Structures",                                           "I am a Professional Killjoy Mate",                                                                 true,   ScrapType.CARD_PROCESSOR),
-		CGUY(           "CreeperGuy89",                     "CreeperGuy89",     null,                                                       "wtf i am even doing here?",                                                                        true,   ScrapType.CARD_BOARD);
+		MADLAD(         "CreeperTyp89",                     "CreeperTyp89",     "NBT Structures",                                           "I am a Professional Killjoy Mate",                                                                 true,   ScrapType.CARD_PROCESSOR);
 				
 		public String name;			//the title of the tooltip
 		public String label;		//the name engraved in the socket
