@@ -9,6 +9,7 @@ import com.hbm.items.ModItems;
 import com.hbm.items.weapon.sedna.factory.GunFactory.EnumModSpecial;
 import com.hbm.lib.RefStrings;
 import com.hbm.main.ResourceManager;
+import com.hbm.blocks.ModBlocks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -23,10 +24,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+import net.minecraft.client.renderer.RenderBlocks;
 
 public class RenderBobble extends TileEntitySpecialRenderer {
 	
 	public static RenderBobble instance = new RenderBobble();
+	private final RenderBlocks blockRenderer = new RenderBlocks();
 	
 	public static final IModelCustom bobble = AdvancedModelLoader.loadModel(new ResourceLocation(RefStrings.MODID, "models/trinkets/bobble.obj"));
 	public static final ResourceLocation socket = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/socket.png");
@@ -53,6 +56,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 	public static final ResourceLocation bobble_mellow_glow = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/mellowrpg8_glow.png");
 	public static final ResourceLocation bobble_abel = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/abel.png");
 	public static final ResourceLocation bobble_abel_glow = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/abel_glow.png");
+	public static final ResourceLocation bobble_madlad = new ResourceLocation(RefStrings.MODID, "textures/models/trinkets/creepertyp.png");
 
 	private long time;
 
@@ -110,6 +114,7 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		case PEEP:		bindTexture(bobble_peep); break;
 		case MELLOW:	bindTexture(bobble_mellow); break;
 		case ABEL:		bindTexture(bobble_abel); break;
+		case MADLAD:    bindTexture(bobble_madlad); break;
 		default:		bindTexture(ResourceManager.universal);
 		}
 		
@@ -229,6 +234,13 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 		case ABEL:
 			rotLeftArm = new double[]{0, 80, 90};
 			rotRightArm = new double[]{0, -80, 90};
+			break;
+		case MADLAD:
+			rotLeftArm = new double[]{0, 75, -15};
+			rotRightArm = new double[]{0, 0, 60};
+			rotLeftLeg = new double[]{3, 5, 2};
+			rotRightLeg = new double[]{-3, -5, 0};
+			rotHead = new double[]{0, 22, 0};
 			break;
 		}
 	}
@@ -502,6 +514,23 @@ public class RenderBobble extends TileEntitySpecialRenderer {
 			renderGuy(type);
 			GL11.glPopAttrib();
 			break;
+		case MADLAD:
+		    GL11.glPushMatrix();
+		    GL11.glTranslated(-0.2, 0.7, -0.8);
+		    GL11.glRotated(150, 80, 35, 80);
+		    renderItem(new ItemStack(ModItems.schrabidium_hammer));
+		    GL11.glPopMatrix();
+		    GL11.glPushMatrix();
+		    GL11.glTranslated(0.6, 1.5, 0.4);
+		    GL11.glScaled(0.35, 0.35, 0.35);
+		    bindTexture(TextureMap.locationBlocksTexture);
+		    blockRenderer.renderBlockAsItem(
+		        ModBlocks.brick_concrete,
+		        0,
+		        1.0F
+		    );
+		    GL11.glPopMatrix();
+		    break;
 		}
 	}
 	
